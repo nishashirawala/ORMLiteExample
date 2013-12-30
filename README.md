@@ -9,11 +9,10 @@ Done
 ==============
 1. Parse html response recived from http://m.miway.ca/routes.jsp
 2. Create list of all routes 
+3. Create Routes database table using ORMLite
+4. Save all parsed routes in table using ORMLite
 
 
 To Do
 =========
-1. Create Routes database table using ORMLite
-2. Save all parsed routes in table using ORMLite
-3. Get data from database using ORMLite
-4. Show routes on UI using ORMLite
+1. Show routes on UI using ORMLite
