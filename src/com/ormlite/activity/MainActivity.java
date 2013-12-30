@@ -37,7 +37,7 @@ public class MainActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 				route.setRouteId(routeVO.getRouteId());
 				route.setRouteName(routeVO.getRouteName());
 				route.setRouteType(routeVO.getRouteType());
-				routeDao.create(route);
+				routeDao.createOrUpdate(route);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
