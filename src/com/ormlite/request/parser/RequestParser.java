@@ -14,14 +14,14 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import com.ormlite.bean.Route;
+import com.ormlite.bean.RouteVO;
 import com.ormlite.util.Constants;
 
 public class RequestParser {
 
-	public static List<Route> parseRoutes() {
+	public static List<RouteVO> parseRoutes() {
 		Document doc;
-		List<Route> routes = new ArrayList<Route>();
+		List<RouteVO> routes = new ArrayList<RouteVO>();
 		try {
 			doc = Jsoup.connect(Constants.ROUTE_LIST_URL).get();
 
@@ -66,11 +66,11 @@ public class RequestParser {
 		return routes;
 	}
 
-	private static void populateRouteList(List<Route> routeList, String href, String text, String routeType) {
+	private static void populateRouteList(List<RouteVO> routeList, String href, String text, String routeType) {
 		if (href != null && href.contains(ROUTE_STOPS_JSP)) {
-			String[] split = href.split("\\?");
+			String[] split = href.split("\\?id=");
 			if (split.length > 1) {
-				Route route = new Route();
+				RouteVO route = new RouteVO();
 				route.setRouteId(split[1]);
 				route.setRouteName(text);
 				route.setRouteType(routeType);

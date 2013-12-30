@@ -1,6 +1,6 @@
 package com.ormlite.bean;
 
-public class Route {
+public class RouteVO {
 
 	private String routeId;
 	private String routeName;
