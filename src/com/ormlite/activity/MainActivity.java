@@ -1,7 +1,9 @@
 package com.ormlite.activity;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +12,7 @@ import com.j256.ormlite.android.apptools.OrmLiteBaseActivity;
 import com.j256.ormlite.dao.Dao;
 import com.ormlite.bean.RouteVO;
 import com.ormlite.database.DatabaseHelper;
+import com.ormlite.model.Route;
 import com.ormlite.request.parser.RequestParser;
 
 public class MainActivity extends OrmLiteBaseActivity<DatabaseHelper> {
@@ -32,8 +35,13 @@ public class MainActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 		DatabaseHelper databaseHelper = getHelper();
 		try {
 			Dao<com.ormlite.model.Route, Integer> routeDao = databaseHelper.getRouteDao();
+			List<Route> savedRoutes = routeDao.queryForAll();
+			Map<String, Route> map = convertToMap(savedRoutes);
 			for (RouteVO routeVO : routeVOList) {
-				com.ormlite.model.Route route = new com.ormlite.model.Route();
+				Route route = map.get(routeVO.getRouteId());
+				if(route == null) {
+					route = new Route();
+				}
 				route.setRouteId(routeVO.getRouteId());
 				route.setRouteName(routeVO.getRouteName());
 				route.setRouteType(routeVO.getRouteType());
@@ -42,5 +50,15 @@ public class MainActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	private Map<String, Route> convertToMap(List<Route> routeList) {
+		Map<String, Route> map = new HashMap<String, Route>();
+		if(routeList != null && routeList.size()>0) {
+			for (Route route : routeList) {
+				map.put(route.getRouteId(), route);
+			}
+		}
+		return map;
 	}
 }
