@@ -3,6 +3,7 @@
 
     <string name="app_name">ORMLiteExample</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Learning ORMLite</string>
+    <string name="desc">Showing records from database</string>
+    <string name="empty">No Results Found From Database</string>
 
 </resources>
