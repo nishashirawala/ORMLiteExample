@@ -1,5 +1,6 @@
 package com.ormlite.bean;
 
+// VO to store route information
 public class RouteVO {
 
 	private String routeId;
