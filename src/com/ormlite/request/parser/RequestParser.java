@@ -79,4 +79,9 @@ public class RequestParser {
 		}
 	}
 
+	public static void main(String[] args) {
+		List<RouteVO> routeVOs = RequestParser.parseRoutes();
+		System.out.println(routeVOs.size());
+	}
+
 }
