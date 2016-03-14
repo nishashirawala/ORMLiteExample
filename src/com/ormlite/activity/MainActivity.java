@@ -66,13 +66,15 @@ public class MainActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 			List<Route> savedRoutes = routeDao.queryForAll();
 			Map<String, Route> map = convertToMap(savedRoutes);
 			for (RouteVO routeVO : routeVOList) {
-				Route route = map.get(routeVO.getRouteId());
+				Route route = map.get(routeVO.getRoutePublicIdentifier());
 				if(route == null) {
 					route = new Route();
 				}
-				route.setRouteId(routeVO.getRouteId());
+				route.setRoutePublicIdentifier(routeVO.getRoutePublicIdentifier());
 				route.setRouteName(routeVO.getRouteName());
-				route.setRouteType(routeVO.getRouteType());
+				route.setHref(routeVO.getHref());
+				route.setRouteDirection(routeVO.getRouteDirection());
+
 				routeDao.createOrUpdate(route);
 			}
 		} catch (SQLException e) {
@@ -84,7 +86,7 @@ public class MainActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 		Map<String, Route> map = new HashMap<String, Route>();
 		if(routeList != null && routeList.size()>0) {
 			for (Route route : routeList) {
-				map.put(route.getRouteId(), route);
+				map.put(route.getRoutePublicIdentifier(), route);
 			}
 		}
 		return map;

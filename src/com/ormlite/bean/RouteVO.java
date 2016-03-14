@@ -2,28 +2,6 @@ package com.ormlite.bean;
 
 public class RouteVO {
 
-    private String routeId;
-
-    private String routeType;
-
-    public String getRouteId() {
-        return routeId;
-    }
-
-    public void setRouteId(String routeId) {
-        this.routeId = routeId;
-    }
-
-
-    public String getRouteType() {
-        return routeType;
-    }
-
-    public void setRouteType(String routeType) {
-        this.routeType = routeType;
-    }
-
-
     private String routeName;
     private String routePublicIdentifier;
     private String routeDirection;
