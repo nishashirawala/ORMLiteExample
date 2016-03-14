@@ -27,6 +27,8 @@ public class RouteVO {
     private String routeName;
     private String routePublicIdentifier;
     private String routeDirection;
+    private String href;
+
 
     public String getRoutePublicIdentifier() {
         return routePublicIdentifier;
@@ -51,4 +53,13 @@ public class RouteVO {
     public void setRouteName(String routeName) {
         this.routeName = routeName;
     }
+
+    public String getHref() {
+        return href;
+    }
+
+    public void setHref(String href) {
+        this.href = href;
+    }
+
 }
