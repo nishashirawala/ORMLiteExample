@@ -6,44 +6,54 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "route")
 public class Route {
 
-	@DatabaseField(generatedId = true)
-	private int id;
-	@DatabaseField(index = true, unique = true)
-	private String routeId;
-	@DatabaseField
-	private String routeName;
-	@DatabaseField
-	private String routeType;
+    @DatabaseField(generatedId = true)
+    private int id;
+    private String routeName;
+    @DatabaseField(index = true, unique = true)
+    private String routePublicIdentifier;
+    @DatabaseField
+    private String routeDirection;
+    @DatabaseField
+    private String href;
 
-	public int getId() {
-		return id;
-	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public String getRouteId() {
-		return routeId;
-	}
+    public String getRoutePublicIdentifier() {
+        return routePublicIdentifier;
+    }
 
-	public void setRouteId(String routeId) {
-		this.routeId = routeId;
-	}
+    public void setRoutePublicIdentifier(String routePublicIdentifier) {
+        this.routePublicIdentifier = routePublicIdentifier;
+    }
 
-	public String getRouteName() {
-		return routeName;
-	}
+    public String getRouteDirection() {
+        return routeDirection;
+    }
 
-	public void setRouteName(String routeName) {
-		this.routeName = routeName;
-	}
+    public void setRouteDirection(String routeDirection) {
+        this.routeDirection = routeDirection;
+    }
 
-	public String getRouteType() {
-		return routeType;
-	}
+    public String getHref() {
+        return href;
+    }
 
-	public void setRouteType(String routeType) {
-		this.routeType = routeType;
-	}
+    public void setHref(String href) {
+        this.href = href;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getRouteName() {
+        return routeName;
+    }
+
+    public void setRouteName(String routeName) {
+        this.routeName = routeName;
+    }
 }

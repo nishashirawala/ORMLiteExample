@@ -3,31 +3,11 @@ package com.ormlite.bean;
 // VO to store route information
 public class RouteVO {
 
-    private String routeId;
-
-    private String routeType;
-
-    public String getRouteId() {
-        return routeId;
-    }
-
-    public void setRouteId(String routeId) {
-        this.routeId = routeId;
-    }
-
-
-    public String getRouteType() {
-        return routeType;
-    }
-
-    public void setRouteType(String routeType) {
-        this.routeType = routeType;
-    }
-
-
     private String routeName;
     private String routePublicIdentifier;
     private String routeDirection;
+    private String href;
+
 
     public String getRoutePublicIdentifier() {
         return routePublicIdentifier;
@@ -52,4 +32,13 @@ public class RouteVO {
     public void setRouteName(String routeName) {
         this.routeName = routeName;
     }
+
+    public String getHref() {
+        return href;
+    }
+
+    public void setHref(String href) {
+        this.href = href;
+    }
+
 }
